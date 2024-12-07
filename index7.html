@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #t1{
+            background: lightgreen;
+            width: 97%;
+            height: 40px;
+        }
+        #a{
+            text-align: center;
+            border: none;
+            
+        }
+        button {
+display: inline-block;
+margin: 3px;
+width: 45px;
+height: 45px;
+font-size: 16px;
+font-weight: bold;
+border-radius: 50%;
+box-shadow: 0px 0px 5px 0px   silver;
+border: 0px;
+ 
+}
+    </style>
+<script>
+    function btnpress(x)
+    {
+document.getElementById("t1").value += x;
+    }
+    function cleardata(){
+        document.getElementById("t1").value = ""
+    }
+    function result(){
+        var a = document.getElementById("t1").value;
+        var b = eval(a);
+        document.getElementById("t1").value = b;
+    }
+    function backpress(){
+        var a = document.getElementById("t1").value;
+        var l = a.length;
+        var b = a.substr(0, l-1);
+        document.getElementById("t1").value = b;
+    }
+</script>
+</head>
+<body>
+    <table border="2px">
+        <tr>
+            <td colspan="4">
+                <input readonly id="t1"/>
+            </td>
+        </tr>
+        <tr id="a">
+                <td><button onclick="cleardata()">AC</button></td>
+                <td><button  onclick="backpress('&larr')">&larr;</button></td>
+                <td><button onclick="btnpress('%')">%</button></td>
+                <td><button onclick="btnpress('+')">+</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="btnpress('7')">7</button></td>
+                    <td><button onclick="btnpress('8')">8</button></td>
+                    <td><button onclick="btnpress('9')">9</button></td>
+                    <td><button onclick="btnpress('/')">/</button></td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="btnpress('4')">4</button></td>
+                        <td><button onclick="btnpress('5')">5</button></td>
+                        <td><button onclick="btnpress('6')">6</button></td>
+                        <td><button onclick="btnpress('*')">*</button></td>
+                        </tr>
+                        <tr>
+                            <td><button onclick="btnpress('1')">1</button></td>
+                            <td><button onclick="btnpress('2')">2</button></td>
+                            <td><button onclick="btnpress('3')">3</button></td>
+                            <td><button onclick="btnpress('-')">-</button></td>
+                            </tr>
+                            <tr>
+                                <td><button onclick="btnpress('0')">0</button></td>
+                                <td><button onclick="btnpress('00')">00</button></td>
+                                <td><button onclick="btnpress('.')">.</button></td>
+                                <td><button onclick="result('=')">=</button></td>
+                                </tr>
+    </table>
+</body>
+</html>
